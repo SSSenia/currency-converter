@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "src/reset.scss",
+              "src/colors.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +95,8 @@
               "src/assets"
             ],
             "styles": [
+              "src/reset.scss",
+              "src/colors.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4f2ce99b-c65e-4cf5-be4d-7195020f4c17"
   }
 }
