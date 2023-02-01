@@ -1,5 +1,5 @@
 .header {
-    background-color: var(--dark);
+    background: var(--dark);
 
     &__wrapper {
         padding: 20px 50px;
@@ -19,7 +19,7 @@
         font-weight: bold;
     }
 
-    &__line{
+    &__line {
         width: 100%;
         height: 10px;
         background: var(--accent);

@@ -1,1 +1,15 @@
-<pre>{{ this.exchange$ | async | json}}</pre>
+<section class="converter" *ngIf="exchange$ | async as exchange">
+    <div class="converter__field">
+        <select class="converter__currency" [formControl]="selectCurrency">
+            <option *ngFor="let currency of exchange" [value]="currency.cc">{{currency.cc}}</option>
+        </select>
+        <input class="converter__input" [formControl]="customCurrency" type="number">
+    </div>
+
+    <span class="material-symbols-outlined converter__image"> currency_exchange </span>
+
+    <div class="converter__currency"> UAH </div>
+    <div class="converter__field">
+        <input class="converter__input" [formControl]="hryvnia" type="number">
+    </div>
+</section>

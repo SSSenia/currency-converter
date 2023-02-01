@@ -1,0 +1,55 @@
+.converter {
+    background: var(--dark);
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    padding: 70px 0;
+
+    &__field {
+        display: flex;
+    }
+
+    &__image {
+        font-size: 50px;
+        color: var(--accent);
+        font-weight: bold;
+        margin: 0 50px;
+    }
+
+    &__input,
+    &__currency {
+        background: var(--dark-low);
+        color: var(--light);
+        border: 2px solid var(--accent);
+        padding: 10px;
+        text-align: center;
+        line-height: 40px;
+
+        &:hover {
+            background: var(--dark);
+            transition-duration: .1s;
+        }
+    }
+
+    &__input {
+        border-left: none;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        font-size: 30px;
+    }
+
+    &__currency {
+        font-size: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type=number] {
+        appearance: textfield;
+    }
+}
