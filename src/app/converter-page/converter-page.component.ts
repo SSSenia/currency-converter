@@ -32,13 +32,17 @@ export class ConverterPageComponent implements OnInit {
 
   public calculateFirst() {
     this.firstCurrency.setValue(
-      this.secondCurrency.value * this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate
-      / this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate)
+      Math.round(100 * this.secondCurrency.value
+        * this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate
+        / this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate)
+      / 100);
   }
 
   public calculateSecond() {
     this.secondCurrency.setValue(
-      this.firstCurrency.value * this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate
-      / this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate)
+      Math.round(100 * this.firstCurrency.value
+        * this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate
+        / this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate)
+      / 100);
   }
 }
