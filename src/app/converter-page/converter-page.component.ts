@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, Subscription, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ICurrency } from '../shared/interfaces';
 import { ParseApiService } from '../shared/parse-api.service';
 
@@ -12,9 +12,11 @@ import { ParseApiService } from '../shared/parse-api.service';
 })
 export class ConverterPageComponent implements OnInit {
 
-  public selectCurrency: FormControl = new FormControl('USD');
-  public customCurrency: FormControl = new FormControl(0);
-  public hryvnia: FormControl = new FormControl(0);
+  public firstSelectCurrency: FormControl = new FormControl('USD');
+  public firstCurrency: FormControl = new FormControl(0);
+
+  public secondSelectCurrency: FormControl = new FormControl('UAH');
+  public secondCurrency: FormControl = new FormControl(0);
 
   public exchange$!: Observable<ICurrency[]>;
   private exchange: ICurrency[] = [];
@@ -28,20 +30,15 @@ export class ConverterPageComponent implements OnInit {
       tap((exchange) => this.exchange = exchange));
   }
 
-  public calculateHryvnia() {
-    if (+this.customCurrency.value)
-      this.hryvnia.setValue(Math.round((this.customCurrency.value * this.exchange.find(x => x.cc === this.selectCurrency.value)!.rate) * 100) / 100);
-    else this.resetValues();
+  public calculateFirst() {
+    this.firstCurrency.setValue(
+      this.secondCurrency.value * this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate
+      / this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate)
   }
 
-  public calculateCustomCurrency() {
-    if (+this.hryvnia.value)
-      this.customCurrency.setValue(Math.round((this.hryvnia.value / this.exchange.find(x => x.cc === this.selectCurrency.value)!.rate) * 100) / 100);
-    else this.resetValues();
-  }
-
-  public resetValues() {
-    this.customCurrency.setValue(0);
-    this.hryvnia.setValue(0);
+  public calculateSecond() {
+    this.secondCurrency.setValue(
+      this.firstCurrency.value * this.exchange.find(x => x.cc === this.firstSelectCurrency.value)!.rate
+      / this.exchange.find(x => x.cc === this.secondSelectCurrency.value)!.rate)
   }
 }

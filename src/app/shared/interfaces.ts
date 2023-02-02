@@ -1,7 +1,7 @@
 export interface ICurrency{
-    r030: number,
+    r030?: number,
     txt: string,
     rate: number,
     cc: string,
-    exchangedate: string
+    exchangedate?: string
 }

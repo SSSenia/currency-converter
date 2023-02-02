@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { ICurrency } from './interfaces';
 
 @Injectable({
@@ -18,6 +18,16 @@ export class ParseApiService {
     return this.exchange
       ? of(this.exchange)
       : this.http.get<ICurrency[]>('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
-        .pipe(tap((exchange) => this.exchange = exchange));
+        .pipe(
+          map((arr) => {
+            arr.push({
+              txt: 'Українська гривня',
+              rate: 1,
+              cc: 'UAH',
+            })
+            this.exchange = arr
+            return arr;
+          })
+        );
   }
 }
