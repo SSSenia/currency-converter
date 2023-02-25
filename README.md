@@ -1,27 +1,12 @@
-# CurrencyConverter
+## Currency Converter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+Project in Angular. Written as a test assignment.
 
-## Development server
+The header displays the current exchange rate (CNY, KZT, GBP, USD, EUR) against the hryvnia (UAH).
+There are 2 inputs and 2 currency options. When one of the parameters is changed, the exchange rate is recalculated.
+The current exchange rate should come from the [public API](https://bank.gov.ua/ua/open-data/api-dev).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Screenshots:
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![currency-converter-1](https://user-images.githubusercontent.com/82032813/221351813-10bec660-4718-4577-93ca-d6b48e8b868e.png)
+![currency-converter-2](https://user-images.githubusercontent.com/82032813/221351869-42a787c4-665b-4622-8419-9bf3fd76dfb6.png)
